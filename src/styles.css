@@ -1,0 +1,169 @@
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/inter/800.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  -webkit-text-size-adjust: 100%;
+  --bg: #faf7f2;
+  --card: #ffffff;
+  --ink: #14181f;
+  --muted: #5b6472;
+  --line: #e7e2d9;
+  --accent: #16a34a;
+  --accent-dark: #15803d;
+  --accent-soft: #e9f6ed;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: Inter, system-ui, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: none;
+}
+
+/* Större träffytor och ingen dubbeltryck-zoom på iPad */
+button,
+a,
+input,
+textarea,
+select {
+  touch-action: manipulation;
+  font-family: inherit;
+}
+
+@layer components {
+  .card {
+    @apply rounded-card border border-line bg-card p-5;
+    box-shadow: 0 1px 2px rgba(20, 24, 31, 0.04), 0 8px 24px -20px rgba(20, 24, 31, 0.25);
+  }
+
+  .card-tap {
+    @apply transition-colors;
+  }
+  .card-tap:hover {
+    border-color: #d8d1c4;
+  }
+  .card-tap:active {
+    background: #fdfcfa;
+  }
+
+  .btn {
+    @apply inline-flex min-h-[52px] select-none items-center justify-center gap-2 rounded-2xl px-5 py-3
+      text-base font-semibold transition active:scale-[0.99];
+  }
+  .btn-primary {
+    @apply btn bg-accent text-white;
+  }
+  .btn-primary:hover {
+    background: var(--accent-dark);
+  }
+  .btn-ghost {
+    @apply btn border border-line bg-white text-ink;
+  }
+  .btn-ghost:hover {
+    border-color: #cfc8ba;
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-full border border-line bg-bg px-3 py-1 text-xs font-semibold text-muted;
+  }
+  .chip-sm {
+    @apply px-2.5 py-0.5 text-[11px];
+  }
+
+  .option {
+    @apply flex w-full items-center justify-center gap-2 rounded-2xl border-2 px-4 py-3 text-center
+      text-lg font-semibold transition-colors;
+    min-height: 56px;
+    border-color: var(--line);
+    background: #fff;
+    color: var(--ink);
+  }
+  .option-idle:hover {
+    border-color: #cfc8ba;
+    background: #fffdfa;
+  }
+  .option-idle:active {
+    background: #f8f4ec;
+  }
+  .option-right {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+    color: #0f6b33;
+    animation: glow-green 700ms ease-out;
+  }
+  .option-wrong {
+    border-color: #e6b4a9;
+    background: #fdf1ee;
+    color: #8a3a2c;
+    animation: nudge-soft 420ms ease-out;
+  }
+  .option-dim {
+    opacity: 0.5;
+  }
+  .option-selected {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+    box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.16);
+  }
+
+  .focus-ring {
+    @apply outline-none;
+  }
+  .focus-ring:focus-visible {
+    outline: 3px solid rgba(22, 163, 74, 0.45);
+    outline-offset: 2px;
+  }
+}
+
+@keyframes glow-green {
+  0% {
+    box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.35);
+  }
+  55% {
+    box-shadow: 0 0 0 9px rgba(22, 163, 74, 0.1);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(22, 163, 74, 0);
+  }
+}
+
+@keyframes nudge-soft {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  30% {
+    transform: translateX(-3px);
+  }
+  65% {
+    transform: translateX(3px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .option-right,
+  .option-wrong {
+    animation: none;
+  }
+  * {
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.safe-bottom {
+  padding-bottom: max(1rem, env(safe-area-inset-bottom));
+}
