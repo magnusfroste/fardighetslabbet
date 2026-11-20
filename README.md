@@ -4,7 +4,9 @@ Gratis färdighetsträning för åk 4–6 i **matematik**, **svenska** och **eng
 återkoppling och en nivå som anpassar sig efter resultatet. Ingen inloggning, inga kakor och inga anrop till externa
 servrar.
 
-## Funktioner
+**Spela:** https://fardighetslabbet.skolappar.com · En del av [Skolappar](https://www.skolappar.com) – pedagogiska appar av föräldrar · öppen källkod (MIT)
+
+## Vad du kan göra
 
 - **Tre ämnen, tre nivåer** (lätt, medel, svår).
   - Matematik: addition/subtraktion, multiplikation/division, bråk och procent – alla uppgifter genereras av koden och
@@ -33,6 +35,17 @@ npm run verify   # innehålls- och svarskontroll (node)
 npm run typecheck
 ```
 
+Dockerfilen bygger med Node 22.
+
+## Docker
+
+```bash
+docker build -t fardighetslabbet .
+docker run --rm -p 8080:8080 fardighetslabbet
+```
+
+Bygget serveras av nginx på port 8080 med `deploy/nginx.conf`.
+
 ## Innehåll
 
 Ordlistorna ligger i `src/lib/content.ts` och är skrivna för den här appen: 70 stavningspar, 60 synonympar, 188
@@ -54,9 +67,8 @@ scripts/verify-content.ts  kontroll av innehåll, svar och sparning
 
 ## Integritet
 
-Appen har inga nätverksanrop i drift, sätter inga kakor och kräver inget konto. Typsnittet Inter buntas med
-`@fontsource/inter`. Framstegen kan nollställas från startsidan.
+Appen har inga nätverksanrop i drift, sätter inga kakor och kräver inget konto. Typsnittet Fredoka ligger i appen (`public/fonts/`); `@fontsource/inter` följer också med i bygget. Inga typsnitt hämtas utifrån. Framstegen kan nollställas från startsidan.
 
 ## Licens
 
-Öppen källkod, MIT.
+MIT – se [LICENSE](LICENSE).
