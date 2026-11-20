@@ -6,6 +6,8 @@ servrar.
 
 **Spela:** https://fardighetslabbet.skolappar.com · En del av [Skolappar](https://www.skolappar.com) – pedagogiska appar av föräldrar · öppen källkod (MIT)
 
+![Färdighetslabbet](public/kort.png)
+
 ## Vad du kan göra
 
 - **Tre ämnen, tre nivåer** (lätt, medel, svår).
