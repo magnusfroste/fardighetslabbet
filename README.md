@@ -67,7 +67,7 @@ scripts/verify-content.ts  kontroll av innehåll, svar och sparning
 
 ## Integritet
 
-Appen har inga nätverksanrop i drift, sätter inga kakor och kräver inget konto. Typsnittet Fredoka ligger i appen (`public/fonts/`); `@fontsource/inter` följer också med i bygget. Inga typsnitt hämtas utifrån. Framstegen kan nollställas från startsidan.
+Appen har inga nätverksanrop i drift, sätter inga kakor och kräver inget konto. Typsnittet Fredoka ligger i appen (`public/fonts/`). Inga typsnitt hämtas utifrån. Framstegen kan nollställas från startsidan.
 
 ## Licens
 

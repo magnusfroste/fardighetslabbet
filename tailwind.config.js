@@ -3,7 +3,7 @@ export default {
   content: ["./index.html", "./src/**/*.{ts,tsx}"],
   theme: {
     extend: {
-      fontFamily: { sans: ["Inter", "system-ui", "sans-serif"] },
+      fontFamily: { sans: ["Fredoka", "system-ui", "sans-serif"] },
       colors: {
         bg: "#faf7f2",
         card: "#ffffff",
