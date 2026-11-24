@@ -8,6 +8,7 @@ import {
   type Subject,
 } from "./lib/types";
 import { ADAPT_DOWN, ADAPT_UP, PASS_SIZE, buildPass, randomSeed, seedFrom } from "./lib/tasks";
+import { report } from "./lib/skolappar";
 import { mulberry32, shuffle } from "./lib/math";
 import {
   applyPass,
@@ -97,6 +98,8 @@ export default function App() {
       });
     }
     setScreen({ v: "pass", subject, level: chosen, seed: randomSeed(), daily: false });
+    report("round_start");
+    report("level", chosen);
   };
 
   const startDaily = (subject: Subject) => {
@@ -109,11 +112,14 @@ export default function App() {
       seed: seedFrom(`${todayKey()}|${subject}`),
       daily: true,
     });
+    report("round_start");
+    report("level", level);
   };
 
   const finishPass = (subject: Subject, score: number, daily: boolean) => {
     const { store: next, result } = applyPass(store, subject, score, PASS_SIZE, { daily });
     update(next);
+    report("round_done", Math.round((score / PASS_SIZE) * 100));
     setScreen({ v: "result", subject, result });
   };
 
@@ -879,6 +885,7 @@ function MatchTask({
       setWrong(null);
     } else {
       setErrors((n) => n + 1);
+      report("hint");
       setWrong(right);
       if (timer.current) window.clearTimeout(timer.current);
       timer.current = window.setTimeout(() => setWrong(null), 700);
