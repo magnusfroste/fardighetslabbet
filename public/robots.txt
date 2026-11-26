@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://fardighetslabbet.skolappar.com/sitemap.xml
+Sitemap: https://fardighetslabbet.skolappar.org/sitemap.xml

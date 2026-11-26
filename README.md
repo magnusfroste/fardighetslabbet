@@ -4,7 +4,7 @@ Gratis färdighetsträning för åk 4–6 i **matematik**, **svenska** och **eng
 återkoppling och en nivå som anpassar sig efter resultatet. Ingen inloggning, inga kakor och inga anrop till externa
 servrar.
 
-**Spela:** https://fardighetslabbet.skolappar.com · En del av [Skolappar](https://www.skolappar.com) – pedagogiska appar av föräldrar · öppen källkod (MIT)
+**Spela:** https://fardighetslabbet.skolappar.org · En del av [Skolappar](https://www.skolappar.org) – pedagogiska appar av föräldrar · öppen källkod (MIT)
 
 ![Färdighetslabbet](public/kort.png)
 
