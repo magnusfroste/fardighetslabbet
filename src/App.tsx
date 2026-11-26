@@ -126,7 +126,7 @@ export default function App() {
   return (
     <div className="flex min-h-screen flex-col bg-bg text-ink">
       <header className="border-b border-line/80">
-        <div className="mx-auto flex w-full max-w-3xl items-center justify-between gap-3 px-4 py-4 sm:px-6">
+        <div className="mx-auto flex w-full max-w-3xl items-center justify-between gap-3 px-4 py-4 sm:px-6 max-[899px]:!pl-20">
           <button
             type="button"
             onClick={() => setScreen({ v: "home" })}
